@@ -6,7 +6,7 @@ const connectDB = require("./db");
 const menuRoutes = require("./router/menuRouter")
 const app = express();
 app.use(express.json());
-app.use(cors( {origin: ["http://localhost:5173", "https://deepnet-assignment-ek8g8vp0g-vishnus-projects-3fccee9a.vercel.app"], 
+app.use(cors( {origin: ["http://localhost:5173", "https://deepnetassignment-1.onrender.com/"], 
     methods: "GET,POST,PUT,DELETE"}));
 
 connectDB();
