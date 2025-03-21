@@ -11,7 +11,7 @@ function MenuTabs({ selected, setSelected }) {
   useEffect(() => {
     const fetchMenus = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/menus");
+        const response = await axios.get("https://deepnetassignment.onrender.com/api/menus");
         setMenus(response.data);
       } catch (error) {
         console.error("Error fetching menus:", error);
