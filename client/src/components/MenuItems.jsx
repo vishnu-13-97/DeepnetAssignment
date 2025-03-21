@@ -37,7 +37,7 @@ const navigate = useNavigate();
         className={`col-6 ${index % 2 === 0 || index % 2 !== 0 ? 'text-start' : 'text-end'}`}
       >
         <div className="border-bottom border-secondary py-2">
-          <h3 className="h5 fw-semibold">{item.name}.............<span className="fw-bold">{item.price}</span></h3>
+          <h3 className="h5 fw-semibold">{item.name}.............$<span className="fw-bold">{item.price}</span></h3>
           <p>{item.description}</p>
         
         </div>
