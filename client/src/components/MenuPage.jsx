@@ -13,7 +13,7 @@ function MenuPage() {
   useEffect(() => {
     const fetchMenus = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/menus");
+        const response = await axios.get("https://deepnetassignment.onrender.com/api/menus");
         const menusData = response.data || [];
 
         setMenus(menusData);
