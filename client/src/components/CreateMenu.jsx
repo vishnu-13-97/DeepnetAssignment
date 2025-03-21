@@ -16,7 +16,7 @@ function CreateMenu() {
       await axios.post("https://deepnetassignment.onrender.com/api/menus", {
         name,
         description,
-      });
+      },  { headers: { "Content-Type": "application/json" } });
 
       setMessage({ type: "success", text: "Menu created successfully!" });
       setName("");
