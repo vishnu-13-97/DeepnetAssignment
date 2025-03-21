@@ -8,15 +8,15 @@ Deepnet Assignment is a **MERN stack-based** web application that allows users t
 - 📜 **Menu Management:** Create, view, and navigate menus with pagination.
 - 📅 **Reservation System:** Simple UI for table reservations.
 - 📞 **Contact Page:** Contact information with a professional design.
-- 🔑 **Authentication:** Google OAuth login for secure access.
+
 - 🌍 **Responsive Design:** Fully optimized for mobile and desktop.
 
 ## 🛠️ Tech Stack
 - **Frontend:** React.js, Bootstrap
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
-- **Authentication:** JWT, Google OAuth
-- **State Management:** React Context API
+
+
 
 ## 📂 Folder Structure
 ```
