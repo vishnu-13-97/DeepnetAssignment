@@ -14,7 +14,7 @@ function CreateMenuItem() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/menus/${menuId}`);
+        const response = await axios.get(`https://deepnetassignment.onrender.com/api/menus/${menuId}`);
         setMenu(response.data);
       } catch (error) {
         console.error("Error fetching menu:", error);
@@ -29,7 +29,7 @@ function CreateMenuItem() {
     setMessage(null);
 
     try {
-       await axios.post(`http://localhost:5000/api/menus/${menuId}/items`, {
+       await axios.post(`https://deepnetassignment.onrender.com/api/menus/${menuId}/items`, {
         name,
         description,
         price,
