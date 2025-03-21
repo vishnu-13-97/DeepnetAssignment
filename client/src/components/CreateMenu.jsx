@@ -13,7 +13,7 @@ function CreateMenu() {
     setMessage(null);
 
     try {
-      await axios.post("http://localhost:5000/api/menus", {
+      await axios.post("https://deepnetassignment.onrender.com/api/menus", {
         name,
         description,
       });
