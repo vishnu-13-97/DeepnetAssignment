@@ -9,19 +9,20 @@ function MenuPage() {
   const navigate = useNavigate();
   const [menus, setMenus] = useState([]);
   const [selectedMenu, setSelectedMenu] = useState(null);
+  const [loading, setLoading] = useState(true); // Track loading state
 
   useEffect(() => {
-    const fetchMenus = async () => {
+    const fetchMenus = async (retryCount = 3) => {
       try {
+        setLoading(true); 
+
         const response = await axios.get("https://deepnetassignment.onrender.com/api/menus");
         const menusData = response.data || [];
 
         setMenus(menusData);
 
-        // Find the selected menu by name
         let selected = menusData.find((menu) => menu.name === menuName);
 
-        // If no menu is found, default to the first menu
         if (!selected && menusData.length > 0) {
           selected = menusData[0];
           navigate(`/menu/${selected.name}`, { replace: true });
@@ -30,6 +31,13 @@ function MenuPage() {
         setSelectedMenu(selected || null);
       } catch (error) {
         console.error("Error fetching menus:", error);
+
+        // Retry API call in case of failure (cold start handling)
+        if (retryCount > 0) {
+          setTimeout(() => fetchMenus(retryCount - 1), 3000);
+        }
+      } finally {
+        setLoading(false); // Stop loading once API call completes
       }
     };
 
@@ -79,12 +87,15 @@ function MenuPage() {
         </div>
       </div>
 
-      {selectedMenu ? (
+      {/* Show loading text if data is still being fetched */}
+      {loading ? (
+        <p className="text-center text-white mt-4">Loading menu...</p>
+      ) : selectedMenu ? (
         <div className="bg-dark p-4 rounded mb-5" style={{ height: "672px" }}>
           <MenuItems items={selectedMenu.items || []} selectedMenu={selectedMenu} />
         </div>
       ) : (
-        <p className="text-center text-white mt-4">Loading menu...</p>
+        <p className="text-center text-white mt-4">No menu available.</p>
       )}
     </>
   );
