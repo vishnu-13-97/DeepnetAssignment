@@ -19,7 +19,7 @@ function Home() {
         Manage your menus easily. Create new menus, add items, and keep everything organized.
       </p>
 
-      <div className="d-flex flex-column flex-md-row gap-3 w-100 justify-content-center">
+      <div className="d-flex flex-column flex-md-row gap-3 w-50 justify-content-center">
         <button className="btn btn-primary px-4 py-2 w-100 w-md-auto" onClick={() => navigate("/menu")}>
           View Menus
         </button>
